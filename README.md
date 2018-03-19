@@ -1,0 +1,2 @@
+# trackly
+Cryptocurrency tracking app
