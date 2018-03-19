@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Trackly</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald:200,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+            <div class="navbar__logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 32 32" class="navbar__icon">
+                    <path d="M32 16c0 8.836-7.164 16-16 16s-16-7.164-16-16 7.164-16 16-16 16 7.164 16 16zM26.47 15.636l-1.304-9.254-8.666 3.498 3.434 1.98-3.246 5.62-5.62-3.244-5.54 9.592 3.104 1.792 3.748-6.49 5.62 3.244 5.036-8.72 3.434 1.98z"></path>
+                </svg>
+                Trackly
+            </div>
+            <img src="/img/user.jpg" alt="User" class="navbar__user">
+        </div>
+        <div class="navbar__version">v1.05</div>
+    </nav>
+
+    <nav class="crypto-nav">
+        <form action="#" class="crypto-nav__search">
+            <button class="crypto-nav__button">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" class="crypto-nav__icon">
+                    <path d="M9.516 14.016c2.484 0 4.5-2.016 4.5-4.5s-2.016-4.5-4.5-4.5-4.5 2.016-4.5 4.5 2.016 4.5 4.5 4.5zM15.516 14.016l4.969 4.969-1.5 1.5-4.969-4.969v-0.797l-0.281-0.281c-1.125 0.984-2.625 1.547-4.219 1.547-3.609 0-6.516-2.859-6.516-6.469s2.906-6.516 6.516-6.516 6.469 2.906 6.469 6.516c0 1.594-0.563 3.094-1.547 4.219l0.281 0.281h0.797z"></path>
+                </svg>
+            </button>
+            <input type="text" class="crypto-nav__input" placeholder="Search Coins">
+            <ul class="suggestions"></ul>
+        </form>
+        <div class="balance">
+            <h3 class="balance__heading">Total Balance</h3>
+            <div class="balance__box">
+                <span class="balance__total">$ 35,890.00</span>
+                <span class="balance__percentage up">+ 0.79%</span>
+            </div>
+        </div>
+        <div class="favourite-currencies">
+            <h3 class="favourite-currencies__heading">Favourite Currencies</h3>
+            <ul class="favourite-currencies__list"></ul>
+        </div>
+        <div class="other-currencies">
+            <h3 class="other-currencies__heading">Other Currencies</h3>
+            <ul class="other-currencies__list"></ul>
+        </div>
+        <button class="btn add-btn">+ Add Currency</button>
+    </nav>
+
+    <main class="dashboard">
+        <div class="dashboard__top">
+            <div class="dashboard__currency-name" data-currency="bitcoin">
+                <img src="" alt="" class="dashboard__currency-name__icon">
+                <a href="#" class="dashboard__currency-name__name"></a>
+                <p class="dashboard__currency-name__symbol"></p>
+            </div>
+            <div class="dashboard__buttons">
+                <button class="dashboard__button" data-time="histominute">Minute</button>
+                <button class="dashboard__button active" data-time="histohour">Hour</button>
+                <button class="dashboard__button" data-time="histoday">Day</button>
+            </div>
+            <button class="dashboard__fiat" data-fiat="USD">
+                <span class="selected">USD</span>
+                <ul class="dashboard__fiat-list"></ul>
+            </button>
+        </div>
+        <div class="chart">
+            <div class="tooltip tooltip-x"></div>
+            <div class="tooltip-line tooltip-x-line"></div>
+            <div class="tooltip tooltip-y"></div>
+            <div class="tooltip-line tooltip-y-line"></div>
+        </div>
+    </main>
+
+    <aside class="info-nav">
+        <div class="info bitcoin">
+            <h2 class="info__info-heading">info</h2>
+            <div class="info__currency-price">
+                <div class="info__currency-price__percentage" id="percent-24"></div>
+                <div class="info__currency-price__fiat-price" id="usd-price"></div>
+                <div class="info__currency-price__btc">
+                    <span class="info__currency-price__btc-price" id="btc-price"></span>
+                    <span class="info__currency-price__btc-percentage" id="percent-btc"></span>
+                </div>
+            </div>
+            <ul class="info__currency-info">
+                <li class="info__item">
+                    <h3 class="info__heading">Market Cap</h3>
+                    <p class="info__value" id="market-cap"></p>
+                </li>
+                <li class="info__item">
+                    <h3 class="info__heading">Volume (24h)</h3>
+                    <p class="info__value" id="volume-24"></p>
+                </li>
+                <li class="info__item max">
+                    <h3 class="info__heading">Max Supply</h3>
+                    <p class="info__value" id="max-supply"></p>
+                </li>
+                <li class="info__item">
+                    <h3 class="info__heading">Circulating Supply</h3>
+                    <p class="info__value" id="supply"></p>
+                </li>
+                <li class="info__item alg">
+                    <h3 class="info__heading">Algorithm</h3>
+                    <p class="info__value" id="algorithm"></p>
+                </li>
+                <li class="info__item prf">
+                    <h3 class="info__heading">Proof Type</h3>
+                    <p class="info__value" id="proof"></p>
+                </li>
+            </ul>
+        </div>
+        <div class="upgrade">
+            <h2 class="upgrade__heading">Upgrade to pro</h2>
+            <ul class="upgrade__features">
+                <li class="upgrade__item">Unlimited Favourite Currencies</li>
+                <li class="upgrade__item">24/7 Tracking Alert</li>
+                <li class="upgrade__item">Multiply accounts</li>
+            </ul>
+            <button class="btn upgrade__btn">
+                <svg class="upgrade__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+                    <path d="M10.586 6.586c-0.781 0.779-0.781 2.047 0 2.828l1.586 1.586h-7.244c-1.104 0-2 0.895-2 2s0.896 2 2 2h7.244l-1.586 1.586c-0.781 0.779-0.781 2.047 0 2.828 0.391 0.391 0.902 0.586 1.414 0.586s1.023-0.195 1.414-0.586l6.414-6.414-6.414-6.414c-0.781-0.781-2.047-0.781-2.828 0z"></path>
+                </svg>
+            </button>
+        </div>
+    </aside>
+
+    <script type="text/javascript">
+        let selectedCoin = "BTC";
+        let selectedCurrency = "USD";
+        const fiat = [
+            {name:"USD", symbol:"&#36;"},
+            {name:"EUR", symbol:"&#8364;"},
+            {name:"GBP", symbol:"&#163;"},
+            {name:"JPY", symbol:"&#165;"},
+            {name:"CNY", symbol:"&#165;"},
+            {name:"KRW", symbol:"&#8361;"},
+            {name:"RUB", symbol:"&#8381;"}
+        ];
+        const svgs = [
+            "ACT", "ADA", "AE", "AION", "AMP", "ANT", "ARDR", "ARK", "ATM", "BAT", "BAY", "BCC", "BCH", "BCN", "BDL", "BLCN", "BLOCK", "BNB", "BNT", "BQ", "BQX", "BTC", "BTCD", "BTCZ", "BTG", "BTM", "BTS", "BTX", "CNX", "CNY", "CVC", "DASH", "DATA", "DBC", "DCN", "DCR", "DENT", "DGB", "DGD", "DOGE", "DRGN", "EDG", "EDOGE", "ELF", "EMC", "EMC2", "ENG", "EOS", "ETC", "ETH", "ETHOS", "ETN", "ETP", "EUR", "EVX", "EXMO", "FAIR", "FCT", "FIL", "FUN", "GAME", "GAS", "GBP", "GBX", "GBYTE", "GNO", "GNT", "GRS", "GUP", "GXS", "HSR", "HUSH", "ICN", "ICX", "JPY", "KCS", "KIN", "KMD", "KNC", "KRB", "LBC", "LINK", "LKK", "LRC", "LSK", "LTC", "MAID", "MANA", "MCAP", "MCO", "MIOTA", "MLN", "MNX", "MONA", "MTL", "MUSIC", "NAV", "NEBL", "NEO", "NLC2", "NLG", "NMC", "NXS", "NXT", "OMG", "PART", "PASL", "PAY", "PIVX", "POE", "POT", "POWR", "PPC", "PPT", "AURA", "QASH", "QIWI", "QSP", "QTUM", "RCN", "RDD", "RDN", "REP", "REQ", "RHOC", "RLC", "RUB", "SALT", "SAN", "SBERBANK", "SC", "SKY", "SMART", "SNGLS", "SNT", "START", "STEEM", "STORJ", "STORM", "STRAT", "SUB", "TAAS", "TKN", "TRX", "TZC", "UBQ", "USD", "USDT", "VEN", "VERI", "VIVO", "VTC", "WAVES", "WAX", "WTC", "XCP", "XDN", "XEM", "XLM", "XMR", "XRB", "XRP", "XTZ", "XUC", "XVG", "XZC", "XCL", "ZEC", "ZEN", "ZRX"
+        ];
+        const other = [
+            "BTS","CVC","DCR","DGB", "DGD", "DOGE", "EOS", "ETC","GAME", "GAS", "GNO", "GNT", "SC","TRX", "VTC", "WAVES", "XEM", "XLM", "XMR", "XRB", "ZRX"
+        ];
+        const fav = [
+            "BTC", "ETH", "LTC", "XRP", "DASH", "BCH"
+        ];
+        const raw = {
+            names: "<%= names %>".split(","),
+            symbols: "<%= symbols %>".split(","),
+            ranks: "<%= ranks %>".split(","),
+            algs: "<%= algs %>".split(","),
+            imgs: "<%= imgs %>".split(","),
+            proofs: "<%= proofs %>".split(","),
+            maxSupplies: "<%= maxSupplies %>".split(",")
+        }
+        const processed = raw.names.map((cur, i) => {
+            return {
+                "rank": i + 1,
+                "name": cur,
+                "symbol": raw.symbols[i],
+                "algorithm": raw.algs[i],
+                "proof": raw.proofs[i],
+                "maxSupply": raw.maxSupplies[i],
+                "imgUrl": svgs.includes(raw.symbols[i]) ? `/img/crypto/${raw.symbols[i].toLowerCase()}.svg` : `https://www.cryptocompare.com${raw.imgs[i]}`
+            }
+        });
+    </script>
+    <script src="/js/d3.min.js" charset="utf-8"></script>
+    <script src="/js/graph.js" charset="utf-8"></script>
+    <script src="/js/main.js" charset="utf-8"></script>
+</body>
+
+</html>

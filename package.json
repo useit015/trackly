@@ -1,0 +1,21 @@
+{
+  "name": "trackr",
+  "version": "1.0.0",
+  "description": "crypto tracking platform",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "watch:sass": "node-sass ./public/css/base.scss ./public/css/style.css -w"
+  },
+  "author": "Oussama Nahiz <useit015@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "cryptocompare": "^0.4.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "node-fetch": "^1.7.3"
+  },
+  "devDependencies": {
+    "node-sass": "^4.7.2"
+  }
+}
